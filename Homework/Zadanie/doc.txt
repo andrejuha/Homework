@@ -1,0 +1,14 @@
+﻿Zde je kód konzolové aplikace, která konvertuje dokumenty z jednoho formátu do druhého.
+GIST: https://gist.github.com/remunda/3b510f54c6d11a2011bc
+1.          Napište případné chyby aproblematická místa v kódu
+2.          Refaktorujtezadanou aplikaci tak aby bylo možné:
+a.          pracovat s dokumenty z filesystemu, cloudového úložiště nebo HTTP (HTML, read-only)
+b.          číst různé formáty dokumentu (např. XML, JSON).
+c.           uložitdokumenty do různých formátů (XML, JSON, JSON s camel-case názvy properties). 
+d.          sestavit tak aplikaci různými způsoby a testovat třídy separátně bez jejich závislostí
+e.          časem přidávat další formáty a úložiště
+ 
+Budeme se dívat na design výsledného kódu, který by měl odpovídat kvalitě produkční aplikace.
+Testy napište tam, kde to dává smysl. Není třeba 100% pokrytí.
+Implementaci cloud-storage stačí jen naznačit. 
+Pošlete kompilovatelný VS projekt se všemi funkčními testy v zipu.
