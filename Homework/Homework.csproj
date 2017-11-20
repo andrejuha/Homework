@@ -44,10 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Provider.cs" />
     <Compile Include="Provider\Class1.cs" />
-    <Compile Include="Provider\Class2.cs" />
-    <Compile Include="Provider\Class3.cs" />
+    <Compile Include="Provider\WriterProvider.cs" />
+    <Compile Include="Provider\ReaderProvider.cs" />
+    <Compile Include="Provider\ConcreteMediator.cs" />
     <Compile Include="Provider\MediatorBase.cs" />
     <Compile Include="Provider\ProviderBase.cs" />
     <Compile Include="Read\AbstractReader.cs" />
