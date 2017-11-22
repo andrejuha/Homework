@@ -4,7 +4,7 @@ using System;
 
 namespace Homework
 {
-    public class ConcreteMediator<T, R> : MediatorBase<T, R>
+    public class ConcreteMediator<T, R> : MediatorBase<T, R>,IMediatorBase<T, R>
     {
         private IProviderBase<T, R> _readerProvider;
 

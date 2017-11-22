@@ -12,7 +12,7 @@ namespace Homework.Provider
 
     /// </summary>
 
-    public abstract class MediatorBase<T, R>
+    public abstract class MediatorBase<T, R> : IMediatorBase<T, R>
 
     {
 
