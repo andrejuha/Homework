@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace Homework
 {
        
-   public abstract class ComfigureAbstract: IConfigurable
+   public abstract class ConfigureAbstract: IConfigurable
         
     {
-        public ComfigureAbstract()
+        public ConfigureAbstract()
         { }
 
         public abstract void Configure(IConfigurationItem parameter);

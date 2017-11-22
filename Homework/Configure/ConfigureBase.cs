@@ -4,7 +4,7 @@ using Homework.Interfaces;
 
 namespace Homework
 {
-    public class ConfigureBase : ComfigureAbstract
+    public class ConfigureBase : ConfigureAbstract
     {
 
         private Dictionary<int, IConfigurationItem> ConfigurationItems;
