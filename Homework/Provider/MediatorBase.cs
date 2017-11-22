@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Homework.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,7 @@ namespace Homework.Provider
     public abstract class MediatorBase<T, R> : IMediatorBase<T, R>
 
     {
-
-        public abstract R ForwardData(T data,
-
-          ProviderBase<T, R> colleague);
-
+        public abstract R ForwardData(T data, IProviderBase<T, R> provider);
     }
+    
 }

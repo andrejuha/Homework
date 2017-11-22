@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IConfigurable.cs" />
     <Compile Include="IConfigurationItem.cs" />
+    <Compile Include="IMediatorBase.cs" />
     <Compile Include="IProviderBase.cs" />
     <Compile Include="IWriter.cs" />
     <Compile Include="IReader.cs" />

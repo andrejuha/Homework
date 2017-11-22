@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Document\Class1.cs" />
     <Compile Include="Provider\DoubleProvider.cs" />
-    <Compile Include="Provider\IMediatorBase.cs" />
     <Compile Include="Read\DiskReaderProvider.cs" />
     <Compile Include="Read\CloudReaderProvider.cs" />
     <Compile Include="Write\CloudWriterProvider.cs" />

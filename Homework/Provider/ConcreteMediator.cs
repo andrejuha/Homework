@@ -26,7 +26,7 @@ namespace Homework
             }
         }
 
-        public override R ForwardData(T data, ProviderBase<T, R> provider)
+        public override R ForwardData(T data, IProviderBase<T, R> provider)
         {
             bool flag = provider == (ProviderBase<T, R>)this._readerProvider;
             R result;
@@ -40,5 +40,7 @@ namespace Homework
             }
             return result;
         }
+
+    
     }
 }
