@@ -44,15 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Provider\Class1.cs" />
     <Compile Include="Provider\WriterProvider.cs" />
     <Compile Include="Provider\ReaderProvider.cs" />
     <Compile Include="Provider\ConcreteMediator.cs" />
     <Compile Include="Provider\MediatorBase.cs" />
     <Compile Include="Provider\ProviderBase.cs" />
-    <Compile Include="Read\AbstractReader.cs" />
-    <Compile Include="Read\FileReader.cs" />
-    <Compile Include="Write\Class1.cs" />
+    <Compile Include="Configure\ComfigureAbstract.cs" />
+    <Compile Include="Configure\ConfigureBase.cs" />
     <Compile Include="Zadanie\Homework.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,7 +66,9 @@
       <Name>Homework.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Write\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

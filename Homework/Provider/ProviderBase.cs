@@ -7,10 +7,10 @@ using Homework.Interfaces;
 
 namespace Homework.Provider
 {
-    public abstract class ProviderBase<T, R> : IProviderBase<T, R>
+    public abstract class ProviderBase<T, R> : ConfigureBase, IProviderBase<T, R>, IConfigurable
 
     {
-
+        
         protected MediatorBase<T, R> mediator;
 
 
@@ -28,6 +28,13 @@ namespace Homework.Provider
         public abstract R ForwardData(T data);
 
         public abstract R ProcessData (T data);
+
+        public override void Configure(IConfigurationItem parameter)
+        {
+            base.Configure(parameter);
+        }
+
+        
 
     }
 }

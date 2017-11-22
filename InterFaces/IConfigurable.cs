@@ -12,5 +12,7 @@ namespace Homework.Interfaces
 
         void Configure(IConfigurationItem parameter);
 
+
+
     }
 }

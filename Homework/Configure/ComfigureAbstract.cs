@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 namespace Homework
 {
        
-   public abstract class AbstractReader: IConfigurable
+   public abstract class ComfigureAbstract: IConfigurable
         
     {
-        public AbstractReader()
+        public ComfigureAbstract()
         { }
 
         public abstract void Configure(IConfigurationItem parameter);
-       
+
+        public abstract IConfigurationItem GetParam(int parameterID);
+
     }
 }

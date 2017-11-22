@@ -15,7 +15,7 @@ namespace Homework.Test
            
             Configurator configurator = new Configurator();
 
-            IConfigurable fileReader = new FileReader();
+            IConfigurable fileReader = new ConfigureBase();
 
 
             configurator.ConfigurePath(fileReader,@"C:\report\");

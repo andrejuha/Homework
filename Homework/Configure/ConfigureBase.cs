@@ -1,19 +1,15 @@
-﻿using Homework;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Homework.Interfaces;
 
 namespace Homework
 {
-    public class FileReader : AbstractReader
+    public class ConfigureBase : ComfigureAbstract
     {
 
         private Dictionary<int, IConfigurationItem> ConfigurationItems;
 
-        public FileReader()
+        public ConfigureBase()
         {
             ConfigurationItems = new Dictionary<int, IConfigurationItem>();
         }
@@ -30,5 +26,11 @@ namespace Homework
                 ConfigurationItems.Add(parameter.ID, parameter);
         }
 
+        public override IConfigurationItem GetParam(int parameterName)
+        {
+            if (ConfigurationItems.ContainsKey(parameterName))
+                return ConfigurationItems[parameterName];
+            throw new Exception("Configuration parameter name: " + parameterName + " not configured");
+        }
     }
 }
