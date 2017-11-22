@@ -58,10 +58,6 @@
       <Project>{26a1d597-ef9f-414d-846b-f60f2835f75f}</Project>
       <Name>Homework.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Homework\Homework.csproj">
-      <Project>{5108f6f7-dc4f-4e1f-8228-3bc9bfba1a03}</Project>
-      <Name>Homework</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InterFaces\Homework.Interfaces.csproj">
       <Project>{ab08c179-e1e5-472b-b018-56b057404e3e}</Project>
       <Name>Homework.Interfaces</Name>
