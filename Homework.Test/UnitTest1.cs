@@ -16,7 +16,10 @@ namespace Homework.Test
            
             Configurator configurator = new Configurator();
 
-            IConfigurable fileReader = new ConfigureBase();
+
+            ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
+
+            IConfigurable fileReader = new DiskReaderProvider(m);
 
 
             configurator.ConfigureSourcePath(fileReader,@"C:\report\");

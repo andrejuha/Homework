@@ -11,13 +11,13 @@ namespace Homework.Provider
 
     {
         
-        protected MediatorBase<T, R> mediator;
+        protected IMediatorBase<string, string> mediator;
 
 
 
         // Constructor
 
-        public ProviderBase(MediatorBase<T, R> mediator)
+        public ProviderBase(IMediatorBase<string, string> mediator)
 
         {
 

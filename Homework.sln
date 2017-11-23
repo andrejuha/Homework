@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Configuration", "H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework", "Homework\Homework.csproj", "{5108F6F7-DC4F-4E1F-8228-3BC9BFBA1A03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Factory", "Homework.Factory\Homework.Factory.csproj", "{3E394BF9-8270-4E24-B109-3C28FDFFF908}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +35,15 @@ Global
 		{5108F6F7-DC4F-4E1F-8228-3BC9BFBA1A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5108F6F7-DC4F-4E1F-8228-3BC9BFBA1A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5108F6F7-DC4F-4E1F-8228-3BC9BFBA1A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E394BF9-8270-4E24-B109-3C28FDFFF908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E394BF9-8270-4E24-B109-3C28FDFFF908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E394BF9-8270-4E24-B109-3C28FDFFF908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E394BF9-8270-4E24-B109-3C28FDFFF908}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.Interception.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

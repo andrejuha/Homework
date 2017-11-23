@@ -1,10 +1,10 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using Homework.Interfaces;
 
 namespace Homework
 {
-    public class ConfigureBase : ConfigureAbstract
+    public  class ConfigureBase : ConfigureAbstract, IConfigurable
     {
 
         private Dictionary<int, IConfigurationItem> ConfigurationItems;
