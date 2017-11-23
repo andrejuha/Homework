@@ -48,6 +48,8 @@
     <Compile Include="ConfigurationItems\UrlConfigurationItem.cs" />
     <Compile Include="ConfigurationItems\SourcePathConfigurationItem.cs" />
     <Compile Include="ConfigurationItem.cs" />
+    <Compile Include="ConfigureAbstract.cs" />
+    <Compile Include="ConfigureBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

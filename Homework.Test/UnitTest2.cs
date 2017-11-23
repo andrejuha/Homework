@@ -18,10 +18,15 @@ namespace Homework.Test
         public UnitTest2()
         {
             container = new UnityContainer();
-    //        container.RegisterTypes(
-    //AllClasses.FromLoadedAssemblies(),
-    //WithMappings.FromMatchingInterface,
-    //WithName.Default);
+
+            container.RegisterType<DiskReaderProvider>();
+
+            container.RegisterType<JsonWriterProvider>();
+
+            container.RegisterType<DoubleProvider<string, string>>();
+
+            container.RegisterType<IMediatorBase<string, string>, ConcreteMediator<string, string>>();
+            
 
 
         }
@@ -69,13 +74,21 @@ namespace Homework.Test
         [TestMethod]
         public void ResolveDiskReaderProvider()
         {
-
-            container.RegisterType< DiskReaderProvider >();
-
-            container.RegisterType< IMediatorBase <string, string> ,ConcreteMediator <string,string>>();
-            //ConcreteMediator<string, string> concreteMediator = container.Resolve<ConcreteMediator<string, string>>();
-
               var diskReaderProvider = container.Resolve<DiskReaderProvider>();
+            Assert.IsNotNull(diskReaderProvider); // pass
+        }
+
+        [TestMethod]
+        public void ResolveJsonWriter()
+        {
+            var diskReaderProvider = container.Resolve<JsonWriterProvider>();
+            Assert.IsNotNull(diskReaderProvider); // pass
+        }
+
+        [TestMethod]
+        public void ResolveDoubleProvider()
+        {
+            var diskReaderProvider = container.Resolve<DoubleProvider<string,string>>();
             Assert.IsNotNull(diskReaderProvider); // pass
         }
     }

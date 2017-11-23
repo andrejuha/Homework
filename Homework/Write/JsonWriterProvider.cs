@@ -23,23 +23,45 @@ namespace Homework
         public override string ProcessData(string data)
         {
             string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+            XDocument xdoc = null;
+            string serializedDoc = null;
 
-            var xdoc = XDocument.Parse(data);
+            try
+            {
+                 xdoc = XDocument.Parse(data);
+            }
+            catch (Exception ex)
+            {
+            }
+
             var doc = new SimpleDocument
             {
                 Title = xdoc.Root.Element("title").Value,
                 Text = xdoc.Root.Element("text").Value
             };
-
-            var serializedDoc = JsonConvert.SerializeObject(doc);
-
-            using (var targetStream = File.Open(targetFileName, FileMode.Create, FileAccess.Write))
+            try
             {
-                var sw = new StreamWriter(targetStream);
+                 serializedDoc = JsonConvert.SerializeObject(doc);
+            }
+            catch(Exception ex)
+            {
+
+            }
+
+            try
+            {
+                using (var targetStream = File.Open(targetFileName, FileMode.Create, FileAccess.Write))
+                {
+                    var sw = new StreamWriter(targetStream);
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
 
             return string.Empty;
             //            sw.Write(serializedDoc);
-        }
+            }
     }
 }

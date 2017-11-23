@@ -1,5 +1,7 @@
-﻿using Homework.Provider;
+﻿using Homework.Configuration;
+using Homework.Provider;
 using System;
+using System.Xml;
 
 namespace Homework
 {
@@ -17,8 +19,25 @@ namespace Homework
 
         public override string ProcessData(string data)
         {
-            Console.WriteLine("WriterProvider ProcessData message: " + data);
-            return "Console writen:" + data;
+            string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.NewLineOnAttributes = true;
+           
+            try
+            {
+                using (XmlWriter writer = XmlWriter.Create(targetFileName, settings))
+
+                {
+                    writer.WriteStartElement("Employee");
+                }
+            }
+            catch
+            {
+
+            }
+            return string.Empty;
         }
     }
 }
