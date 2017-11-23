@@ -1,5 +1,10 @@
-﻿using Homework.Provider;
+﻿using Homework.Configuration;
+using Homework.Document;
+using Homework.Provider;
+using Newtonsoft.Json;
 using System;
+using System.IO;
+using System.Xml.Linq;
 
 namespace Homework
 {
@@ -17,8 +22,24 @@ namespace Homework
 
         public override string ProcessData(string data)
         {
-            Console.WriteLine("WriterProvider ProcessData message: " + data);
-            return "Console writen:" + data;
+            string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+
+            var xdoc = XDocument.Parse(data);
+            var doc = new SimpleDocument
+            {
+                Title = xdoc.Root.Element("title").Value,
+                Text = xdoc.Root.Element("text").Value
+            };
+
+            var serializedDoc = JsonConvert.SerializeObject(doc);
+
+            using (var targetStream = File.Open(targetFileName, FileMode.Create, FileAccess.Write))
+            {
+                var sw = new StreamWriter(targetStream);
+            }
+
+            return string.Empty;
+            //            sw.Write(serializedDoc);
         }
     }
 }

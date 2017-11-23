@@ -17,21 +17,39 @@ namespace Homework.Configuration
 
     {
 
-        private IConfigurable _configurationItem;
-
-
-        public void ConfigurePath(IConfigurable receiver,string path)
+        public void ConfigureSourcePath(IConfigurable receiver,string path)
 
         {
-            IConfigurationItem pathConfigurationItem = new PathConfigurationItem(receiver, path);
-            receiver.Configure(pathConfigurationItem);
+            IConfigurationItem configurationItem = new SourcePathConfigurationItem(receiver, path);
+            receiver.Configure(configurationItem);
         }
-        //public void Configure(ConfigurationItem configurationItem)
 
-        //{
-        //    this._configurationItem = configurationItem;
-        //    _configurationItem.Configure();
-        //}
+        public void ConfigureDestinationPath(IConfigurable receiver, string path)
+
+        {
+            IConfigurationItem configurationItem = new DestinationPathConfigurationItem(receiver, path);
+            receiver.Configure(configurationItem);
+        }
+        public void ConfigureUserName(IConfigurable receiver, string name)
+
+        {
+            IConfigurationItem configurationItem = new UserNameConfigurationItem(receiver, name);
+            receiver.Configure(configurationItem);
+        }
+
+        public void ConfigureUrl(IConfigurable receiver, string url)
+
+        {
+            IConfigurationItem configurationItem = new UrlConfigurationItem(receiver, url);
+            receiver.Configure(configurationItem);
+        }
+
+        public void ConfigurePassword(IConfigurable receiver, string password)
+
+        {
+            IConfigurationItem configurationItem = new PasswordConfigurationItem(receiver, password);
+            receiver.Configure(configurationItem);
+        }
 
     }
 }

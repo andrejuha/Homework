@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homework.Document
 {
-    public class Document
+    public class SimpleDocument
     {
         public string Title { get; set; }
         public string Text { get; set; }

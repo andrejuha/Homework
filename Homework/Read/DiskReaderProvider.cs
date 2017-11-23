@@ -1,6 +1,8 @@
-﻿using Homework.Interfaces;
+﻿using Homework.Configuration;
+using Homework.Interfaces;
 using Homework.Provider;
 using System;
+using System.IO;
 
 namespace Homework
 {
@@ -17,8 +19,23 @@ namespace Homework
 
         public override string ProcessData(string data)
         {
-            Console.WriteLine("Colleague1 gets message: " + data);
-            return "Console writen:" + data;
+            string sourceFileName = base.GetParam((int)ConfigurationEnum.SourcePath).Value;
+            string input = string.Empty;
+            try
+            {
+                using (FileStream sourceStream = File.Open(sourceFileName, FileMode.Open))
+                {
+                    var reader = new StreamReader(sourceStream);
+                    input = reader.ReadToEnd();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+                //            }
+            }
+            return input;
+           
         }
     }
 }

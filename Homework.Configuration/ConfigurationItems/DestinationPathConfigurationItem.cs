@@ -13,13 +13,13 @@ namespace Homework.Configuration
 
     /// </summary>
 
-    public class PathConfigurationItem : ConfigurationItem
+    public class DestinationPathConfigurationItem : ConfigurationItem
 
     {
         private string path;
         // Constructor
 
-        public PathConfigurationItem(IConfigurable receiver, string path) :
+        public DestinationPathConfigurationItem(IConfigurable receiver, string path) :
 
           base(receiver)
 
@@ -27,8 +27,14 @@ namespace Homework.Configuration
             this.path = path;
         }
 
-        public override int ID { get { return (int)ConfigurtionEnum.Path; } }
+        public override int ID { get { return (int)ConfigurationEnum.DestinationPath; } }
 
-
+        public override string Value
+        {
+            get
+            {
+                return path;
+            }
+        }
     }
 }

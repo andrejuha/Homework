@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Document\Class1.cs" />
+    <Compile Include="Document\SimpleDocument.cs" />
     <Compile Include="Provider\DoubleProvider.cs" />
     <Compile Include="Read\DiskReaderProvider.cs" />
     <Compile Include="Read\CloudReaderProvider.cs" />
@@ -68,6 +68,10 @@
     <None Include="Zadanie\packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Homework.Configuration\Homework.Configuration.csproj">
+      <Project>{26A1D597-EF9F-414D-846B-F60F2835F75F}</Project>
+      <Name>Homework.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InterFaces\Homework.Interfaces.csproj">
       <Project>{ab08c179-e1e5-472b-b018-56b057404e3e}</Project>
       <Name>Homework.Interfaces</Name>

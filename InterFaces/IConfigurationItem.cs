@@ -6,6 +6,11 @@
         {
             get;
         }
-      
+
+        string Value
+        {
+            get;
+        }
+
     }
 }

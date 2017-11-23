@@ -34,18 +34,11 @@ namespace Homework.Configuration
 
         public abstract int ID { get; }
 
-       
+        public abstract string Value { get; }
 
+      
     }
-    //abstract class Command
 
-    //{
-
-    //    public abstract void Execute();
-
-    //    public abstract void UnExecute();
-
-    //}
 
 
 

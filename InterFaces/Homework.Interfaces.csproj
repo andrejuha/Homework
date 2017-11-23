@@ -44,8 +44,6 @@
     <Compile Include="IConfigurationItem.cs" />
     <Compile Include="IMediatorBase.cs" />
     <Compile Include="IProviderBase.cs" />
-    <Compile Include="IWriter.cs" />
-    <Compile Include="IReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

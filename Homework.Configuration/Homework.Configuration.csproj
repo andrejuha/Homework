@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurtionEnum.cs" />
+    <Compile Include="ConfigurationItems\PasswordConfigurationItem.cs" />
+    <Compile Include="ConfigurationItems\DestinationPathConfigurationItem.cs" />
+    <Compile Include="ConfigurationItems\UserNameConfigurationItem.cs" />
+    <Compile Include="ConfigurationEnum.cs" />
     <Compile Include="Configurator.cs" />
-    <Compile Include="PathConfigurationItem.cs" />
+    <Compile Include="ConfigurationItems\UrlConfigurationItem.cs" />
+    <Compile Include="ConfigurationItems\SourcePathConfigurationItem.cs" />
     <Compile Include="ConfigurationItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

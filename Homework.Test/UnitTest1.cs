@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Homework.Configuration;
 using Homework.Interfaces;
+using System.IO;
 
 namespace Homework.Test
 {
@@ -18,12 +19,12 @@ namespace Homework.Test
             IConfigurable fileReader = new ConfigureBase();
 
 
-            configurator.ConfigurePath(fileReader,@"C:\report\");
+            configurator.ConfigureSourcePath(fileReader,@"C:\report\");
 
 
         }
         [TestMethod]
-        public void ProviderTest1()
+        public void DummyProviderTest1()
 
         {
 
@@ -49,5 +50,26 @@ namespace Homework.Test
 
 
         }
-    }
+
+        [TestMethod]
+        public void DiskReaderTest()
+        {
+            Configurator configurator = new Configurator();
+
+            ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
+
+            DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
+
+            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
+            configurator.ConfigureDestinationPath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json"));
+
+        
+        }
+
+        [TestMethod]
+        public void JsonWriterTest()
+        {
+        }
+
+        }
 }
