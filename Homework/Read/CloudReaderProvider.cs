@@ -1,4 +1,6 @@
-﻿using Homework.Interfaces;
+﻿using Homework.Configuration;
+using Homework.Exceptions;
+using Homework.Interfaces;
 using Homework.Provider;
 using System;
 
@@ -6,6 +8,7 @@ namespace Homework
 {
     public class CloudReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>
     {
+        private DummyAuthetificationProxy daProxy= null;
         public CloudReaderProvider(MediatorBase<string, string> mediator) : base(mediator)
         {
         }
@@ -17,8 +20,25 @@ namespace Homework
 
         public override string ProcessData(string data)
         {
-            Console.WriteLine("Colleague1 gets message: " + data);
-            return "Console writen:" + data;
+            string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+            string userName = base.GetParam((int)ConfigurationEnum.UserName).Value;
+            string password = base.GetParam((int)ConfigurationEnum.Password).Value;
+            string url = base.GetParam((int)ConfigurationEnum.Url).Value;
+
+
+            if (daProxy == null)
+            {
+                daProxy = new DummyAuthetificationProxy();
+                bool authetificated = daProxy.Authentificate(userName, userName);
+
+                if (!authetificated)
+                    throw new AuthentificateExceptinCW(new Exception("Dummy Cloud proxy not authetificated."));
+            }
+
+          string outpuData=  daProxy.GetStringFile(targetFileName);
+
+
+          return outpuData;
         }
     }
 }

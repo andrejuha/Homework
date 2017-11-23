@@ -5,6 +5,7 @@ using Homework.Interfaces;
 using Homework.Provider;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 
@@ -27,21 +28,34 @@ namespace Homework
             string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
             XDocument xdoc = null;
             string serializedDoc = null;
+            SimpleDocument doc = null;
+
+            //IEnumerable<XNode> nodes = xdoc.Root.Nodes().to;
 
             try
             {
                  xdoc = XDocument.Parse(data);
+
+                List<XNode> list = new List<XNode>(xdoc.Root.Nodes());
+
+                Predicate<XNode> titleFinder = (XNode p) => { return ((System.Xml.Linq.XElement)p).Name == "title"; };
+                Predicate<XNode> textFinder = (XNode p) => { return ((System.Xml.Linq.XElement)p).Name == "text"; };
+
+                if (!(list.Exists(titleFinder)&& list.Exists(textFinder)))
+                    throw new ParseDataExceptionJW(new Exception("JsonWriterProvider: node 'title'or node 'text'  not exists."));
+
+                doc = new SimpleDocument
+                {
+                Title = xdoc.Root.Element("title").Value,
+                Text = xdoc.Root.Element("text").Value
+                };
             }
             catch (Exception ex)
             {
-                throw new SerializeExceptionJW(ex);
+                throw new ParseDataExceptionJW(ex);
             }
 
-            var doc = new SimpleDocument
-            {
-                Title = xdoc.Root.Element("title").Value,
-                Text = xdoc.Root.Element("text").Value
-            };
+    
             try
             {
                  serializedDoc = JsonConvert.SerializeObject(doc);

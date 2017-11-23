@@ -16,5 +16,10 @@ namespace Homework.Exceptions
         {
 
         }
+
+        public ParseDataExceptionJW(Exception ex,string badData) : base(badData+" : "+ex.Message)
+        {
+
+        }
     }
 }

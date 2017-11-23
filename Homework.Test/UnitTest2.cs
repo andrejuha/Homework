@@ -23,10 +23,16 @@ namespace Homework.Test
 
             container.RegisterType<JsonWriterProvider>();
 
-            container.RegisterType<DoubleProvider<string, string>>();
+            container.RegisterType< DoubleProvider<string, string>>();
+            //container.RegisterType<IProviderBase<string, string>, DoubleProvider<string, string>>();
 
             container.RegisterType<IMediatorBase<string, string>, ConcreteMediator<string, string>>();
+
+
+            container.RegisterType< ConcreteMediator<string, string>>();
             
+
+
 
 
         }

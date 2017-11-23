@@ -1,4 +1,6 @@
-﻿namespace Homework
+﻿using System;
+
+namespace Homework
 {
     internal class DummyAuthetificationProxy
     {
@@ -10,6 +12,11 @@
         internal string GetStringFile(string path)
         {
             return "dummy text from  DummyAuthetificationProxy.GetStringFile";
+        }
+
+        internal void WriteStringFile(string path, string StringFile)
+        {
+           Console.Write (path+" file: "+StringFile);
         }
     }
 }

@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Document\SimpleDocument.cs" />
+    <Compile Include="Exceptions\AuthentificateExceptinCW.cs" />
+    <Compile Include="Exceptions\ParseExceptionJW.cs" />
     <Compile Include="Exceptions\ParseExceptionXW.cs" />
     <Compile Include="Exceptions\XmlWriterExceptionXW.cs" />
     <Compile Include="Exceptions\StreamExceptionJW.cs" />

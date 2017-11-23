@@ -81,7 +81,7 @@ namespace Homework.Test
             configurator.ConfigureDestinationPath(JsonWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json"));
 
 
-            JsonWriter.ProcessData("testData");
+            JsonWriter.ProcessData("<Employees><title ><ID>1</ID ><FirstName > David </FirstName > </title > <text></text ></Employees>");
 
         }
 

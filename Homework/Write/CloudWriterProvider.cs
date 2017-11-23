@@ -1,4 +1,5 @@
 ﻿using Homework.Configuration;
+using Homework.Exceptions;
 using Homework.Interfaces;
 using Homework.Provider;
 using System;
@@ -24,7 +25,14 @@ namespace Homework
             string password = base.GetParam((int)ConfigurationEnum.Password).Value;
             string url= base.GetParam((int)ConfigurationEnum.Url).Value;
 
-            DummyAuthetificationProxy daProxy;
+            DummyAuthetificationProxy daProxy=new DummyAuthetificationProxy();
+            bool authetificated=daProxy.Authentificate(userName, userName);
+
+            if (!authetificated)
+                throw new AuthentificateExceptinCW(new Exception("Dummy Cloud proxy not authetificated."));
+
+            daProxy.WriteStringFile(targetFileName, data);
+
 
             return string.Empty;
         }
