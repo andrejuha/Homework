@@ -1,11 +1,12 @@
-﻿using Homework.Provider;
+﻿using Homework.Interfaces;
+using Homework.Provider;
 using System;
 
 namespace Homework
 {
     public class WriterProvider : ProviderBase<string, string>
     {
-        public WriterProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public WriterProvider(IMediatorBase<string, string> mediator) : base(mediator)
         {
         }
 

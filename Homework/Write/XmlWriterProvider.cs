@@ -1,13 +1,17 @@
 ﻿using Homework.Configuration;
+using Homework.Exceptions;
+using Homework.Interfaces;
 using Homework.Provider;
 using System;
+using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Homework
 {
     public class XmlWriterProvider : ProviderBase<string, string>
     {
-        public XmlWriterProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public XmlWriterProvider(IMediatorBase<string, string> mediator) : base(mediator)
         {
         }
 
@@ -20,24 +24,34 @@ namespace Homework
         public override string ProcessData(string data)
         {
             string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+            XDocument xdoc = null;
 
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-           
             try
             {
-                using (XmlWriter writer = XmlWriter.Create(targetFileName, settings))
+                xdoc = XDocument.Parse(data);
+            }
+            catch (Exception ex)
+            {
+                throw new ParseExceptionXW(ex);
+            }
 
+            try
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                XmlWriterSettings xws = new XmlWriterSettings();
+                xws.OmitXmlDeclaration = true;
+                xws.Indent = true;
+
+                using (XmlWriter xw = XmlWriter.Create(stringBuilder, xws))
                 {
-                    writer.WriteStartElement("Employee");
+                    xdoc.WriteTo(xw);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                throw new XmlWriterExceptionXW(ex);
             }
-            return string.Empty;
+            return null;
         }
     }
 }

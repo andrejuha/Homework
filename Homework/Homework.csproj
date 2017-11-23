@@ -45,10 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Document\SimpleDocument.cs" />
+    <Compile Include="Exceptions\ParseExceptionXW.cs" />
+    <Compile Include="Exceptions\XmlWriterExceptionXW.cs" />
+    <Compile Include="Exceptions\StreamExceptionJW.cs" />
+    <Compile Include="Exceptions\SerializeExceptionJW.cs" />
+    <Compile Include="Exceptions\ParseDataExceptionJW.cs" />
     <Compile Include="Provider\DoubleProvider.cs" />
     <Compile Include="Read\DiskReaderProvider.cs" />
     <Compile Include="Read\CloudReaderProvider.cs" />
     <Compile Include="Write\CloudWriterProvider.cs" />
+    <Compile Include="Write\DummyAuthetificationProxy.cs" />
     <Compile Include="Write\XmlWriterProvider.cs" />
     <Compile Include="Write\JsonWriterProvider.cs" />
     <Compile Include="Write\DiskWriterProvider.cs" />
@@ -75,9 +81,7 @@
       <Name>Homework.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exception\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,5 +1,7 @@
 ﻿using Homework.Configuration;
 using Homework.Document;
+using Homework.Exceptions;
+using Homework.Interfaces;
 using Homework.Provider;
 using Newtonsoft.Json;
 using System;
@@ -10,7 +12,7 @@ namespace Homework
 {
     public class JsonWriterProvider : ProviderBase<string, string>
     {
-        public JsonWriterProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public JsonWriterProvider(IMediatorBase<string, string> mediator) : base(mediator)
         {
         }
 
@@ -32,6 +34,7 @@ namespace Homework
             }
             catch (Exception ex)
             {
+                throw new SerializeExceptionJW(ex);
             }
 
             var doc = new SimpleDocument
@@ -45,7 +48,7 @@ namespace Homework
             }
             catch(Exception ex)
             {
-
+                throw new SerializeExceptionJW(ex);
             }
 
             try
@@ -57,7 +60,7 @@ namespace Homework
             }
             catch (Exception ex)
             {
-
+                throw new StreamExceptionJW(ex);
             }
 
             return string.Empty;

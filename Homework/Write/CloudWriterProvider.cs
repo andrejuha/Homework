@@ -1,11 +1,13 @@
-﻿using Homework.Provider;
+﻿using Homework.Configuration;
+using Homework.Interfaces;
+using Homework.Provider;
 using System;
 
 namespace Homework
 {
     public class CloudWriterProvider : ProviderBase<string, string>
     {
-        public CloudWriterProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public CloudWriterProvider(IMediatorBase<string, string> mediator) : base(mediator)
         {
         }
 
@@ -17,8 +19,14 @@ namespace Homework
 
         public override string ProcessData(string data)
         {
-            Console.WriteLine("WriterProvider ProcessData message: " + data);
-            return "Console writen:" + data;
+            string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+            string userName = base.GetParam((int)ConfigurationEnum.UserName).Value;
+            string password = base.GetParam((int)ConfigurationEnum.Password).Value;
+            string url= base.GetParam((int)ConfigurationEnum.Url).Value;
+
+            DummyAuthetificationProxy daProxy;
+
+            return string.Empty;
         }
     }
 }
