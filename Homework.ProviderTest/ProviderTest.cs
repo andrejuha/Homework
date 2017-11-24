@@ -72,7 +72,7 @@ namespace Homework.Test
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
             JsonReaderProvider diskReaderProvider = new JsonReaderProvider(m);
-            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document2.json"));
+            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.json"));
             diskReaderProvider.ProcessData(null);
         }
 
@@ -111,7 +111,7 @@ namespace Homework.Test
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
 
             JsonReaderProvider diskReaderProvider = new JsonReaderProvider(m);
-            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document2.json"));
+            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.json"));
 
             XmlWriterProvider xmlWriter = new XmlWriterProvider(m);
             configurator.ConfigureDestinationPath(xmlWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.xml"));
