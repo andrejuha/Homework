@@ -70,6 +70,8 @@ namespace Homework
                 using (var targetStream = File.Open(targetFileName, FileMode.Create, FileAccess.Write))
                 {
                     var sw = new StreamWriter(targetStream);
+                    sw.Write(serializedDoc);
+                    sw.Flush();
                 }
             }
             catch (Exception ex)

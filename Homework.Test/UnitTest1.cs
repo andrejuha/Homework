@@ -86,7 +86,27 @@ namespace Homework.Test
         }
 
         [TestMethod]
-        public void DoubleProviderTest()
+        public void DoubleProviderTestDrpJwp()
+        {
+            Configurator configurator = new Configurator();
+
+            ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
+
+            DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
+            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
+
+            JsonWriterProvider jsonWriter = new JsonWriterProvider(m);
+            configurator.ConfigureDestinationPath(jsonWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json"));
+
+
+            DoubleProvider<string, string> doubleProvider = new DoubleProvider<string, string>(diskReaderProvider, jsonWriter, m);
+
+            doubleProvider.Process();
+
+
+        }
+
+        public void DoubleProviderTestJwrJwp()
         {
             Configurator configurator = new Configurator();
 
