@@ -86,7 +86,7 @@ namespace Homework.Test
         }
 
         [TestMethod]
-        public void DoubleProviderTestDrpJwp()
+        public void DoubleProviderTestXmlToJson()
         {
             Configurator configurator = new Configurator();
 
@@ -105,8 +105,8 @@ namespace Homework.Test
 
 
         }
-
-        public void DoubleProviderTestJwrJwp()
+        [TestMethod]
+        public void DoubleProviderTestXmlToXml()
         {
             Configurator configurator = new Configurator();
 
@@ -115,11 +115,11 @@ namespace Homework.Test
             DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
             configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
 
-            JsonWriterProvider jsonWriter = new JsonWriterProvider(m);
-            configurator.ConfigureDestinationPath(jsonWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json"));
+            XmlWriterProvider xmlWriter = new XmlWriterProvider(m);
+            configurator.ConfigureDestinationPath(xmlWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.xml"));
 
 
-            DoubleProvider<string, string> doubleProvider = new DoubleProvider<string, string>(diskReaderProvider, jsonWriter, m);
+            DoubleProvider<string, string> doubleProvider = new DoubleProvider<string, string>(diskReaderProvider, xmlWriter, m);
 
             doubleProvider.Process();
 

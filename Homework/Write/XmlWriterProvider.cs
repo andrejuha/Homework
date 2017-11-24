@@ -37,15 +37,9 @@ namespace Homework
 
             try
             {
-                StringBuilder stringBuilder = new StringBuilder();
-                XmlWriterSettings xws = new XmlWriterSettings();
-                xws.OmitXmlDeclaration = true;
-                xws.Indent = true;
-
-                using (XmlWriter xw = XmlWriter.Create(stringBuilder, xws))
-                {
-                    xdoc.WriteTo(xw);
-                }
+             
+                xdoc.Save(targetFileName);
+                
             }
             catch (Exception ex)
             {
