@@ -4,16 +4,16 @@ using System;
 
 namespace Homework
 {
-    public class DoubleProvider<R,W> : ConfigureBase,  IConfigurable
+    public class DoubleProvider<R,W> : ConfigureBase, IConfigurable, IDoubleProvider<R, W>
     {
 
         public IProviderBase<R, W> readerProvider {get; private set;}
 
         public IProviderBase<R, W> writerProvider { get; private set; }
 
-        public IMediatorBase<R, W> mediator { get; private set; }
+        public IMediator<R, W> mediator { get; private set; }
 
-        public DoubleProvider(IProviderBase<R, W> readerProvider, IProviderBase<R, W> writerProvider, IMediatorBase<R, W> mediator)
+        public DoubleProvider(IProviderBase<R, W> readerProvider, IProviderBase<R, W> writerProvider, IMediator<R, W> mediator)
         {
             
             this.readerProvider = readerProvider;

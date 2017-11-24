@@ -5,13 +5,15 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Interfaces", "InterFaces\Homework.Interfaces.csproj", "{AB08C179-E1E5-472B-B018-56B057404E3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Test", "Homework.Test\Homework.Test.csproj", "{489CE2AE-3AA2-41B2-942D-D37CD7565F75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.IocTest", "Homework.Test\Homework.IocTest.csproj", "{489CE2AE-3AA2-41B2-942D-D37CD7565F75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Configuration", "Homework.Configuration\Homework.Configuration.csproj", "{26A1D597-EF9F-414D-846B-F60F2835F75F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework", "Homework\Homework.csproj", "{5108F6F7-DC4F-4E1F-8228-3BC9BFBA1A03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Factory", "Homework.Factory\Homework.Factory.csproj", "{3E394BF9-8270-4E24-B109-3C28FDFFF908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.ProviderTest", "Homework.ProviderTest\Homework.ProviderTest.csproj", "{7869F8DF-078E-44E8-858B-D22A98906A3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3E394BF9-8270-4E24-B109-3C28FDFFF908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E394BF9-8270-4E24-B109-3C28FDFFF908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E394BF9-8270-4E24-B109-3C28FDFFF908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7869F8DF-078E-44E8-858B-D22A98906A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7869F8DF-078E-44E8-858B-D22A98906A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7869F8DF-078E-44E8-858B-D22A98906A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7869F8DF-078E-44E8-858B-D22A98906A3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ namespace Homework
     public class XmlReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>, IReader
 
     {
-        public XmlReaderProvider(IMediatorBase<string, string> mediator) : base(mediator)
+        public XmlReaderProvider(IMediator<string, string> mediator) : base(mediator)
         {
         }
 

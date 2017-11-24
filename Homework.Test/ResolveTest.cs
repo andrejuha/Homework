@@ -79,24 +79,51 @@ namespace Homework.Test
         #endregion
 
         [TestMethod]
-        public void ResolveDiskReaderProvider()
+        public void ResolveCloudReaderProvider()
         {
-              var diskReaderProvider = container.Resolve<XmlReaderProvider>();
+            var diskReaderProvider = container.Resolve<ICloudReaderProvider>();
             Assert.IsNotNull(diskReaderProvider); // pass
         }
 
-        [TestMethod]
-        public void ResolveJsonWriter()
-        {
-            var diskReaderProvider = container.Resolve<JsonWriterProvider>();
-            Assert.IsNotNull(diskReaderProvider); // pass
-        }
+        //[TestMethod]
+        //public void ResolveDiskReaderProvider()
+        //{
+        //      var diskReaderProvider = container.Resolve<XmlReaderProvider>();
+        //    Assert.IsNotNull(diskReaderProvider); // pass
+        //}
+        //[TestMethod]
+        //public void ResolveXmlWriterProvider()
+        //{
+        //    var diskReaderProvider = container.Resolve<XmlWriterProvider>();
+        //    Assert.IsNotNull(diskReaderProvider); // pass
+        //}
+
+        //[TestMethod]
+        //public void ResolveCloudWriterProvider()
+        //{
+        //    var diskReaderProvider = container.Resolve<CloudWriterProvider>();
+        //    Assert.IsNotNull(diskReaderProvider); // pass
+        //}
+
+        //[TestMethod]
+        //public void ResolveJsonWriter()
+        //{
+        //    var diskReaderProvider = container.Resolve<JsonWriterProvider>();
+        //    Assert.IsNotNull(diskReaderProvider); // pass
+        //}
 
         [TestMethod]
         public void ResolveDoubleProvider()
         {
-            var diskReaderProvider = container.Resolve<DoubleProvider<string,string>>();
+            var diskReaderProvider = container.Resolve<IDoubleProvider<string, string>>();
             Assert.IsNotNull(diskReaderProvider); // pass
         }
+
+        //[TestMethod]
+        //public void ResolveJsonReader()
+        //{
+        //    var diskReaderProvider = container.Resolve<JsonReaderProvider>();
+        //    Assert.IsNotNull(diskReaderProvider); // pass
+        //}
     }
 }

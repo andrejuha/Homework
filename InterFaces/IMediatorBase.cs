@@ -2,7 +2,7 @@
 
 namespace Homework.Interfaces
 {
-    public interface IMediatorBase<T, R>
+    public interface IMediator<T, R>
     {
         R ForwardData(T data, IProviderBase<T, R> provider);
 

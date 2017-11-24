@@ -13,7 +13,7 @@ namespace Homework
 {
     public class JsonReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>, IReader
     {
-        public JsonReaderProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public JsonReaderProvider(IMediator<string, string> mediator) : base(mediator)
         {
         }
 

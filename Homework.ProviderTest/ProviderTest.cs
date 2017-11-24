@@ -11,10 +11,10 @@ namespace Homework.Test
     public class ProviderTest
     {
         [TestMethod]
-        public void  ConfigurationTest()
+        public void ConfigurationTest()
 
         {
-           
+
             Configurator configurator = new Configurator();
 
 
@@ -23,12 +23,12 @@ namespace Homework.Test
             IConfigurable fileReader = new XmlReaderProvider(m);
 
 
-            configurator.ConfigureSourcePath(fileReader,@"C:\testreport\");
+            configurator.ConfigureSourcePath(fileReader, @"C:\testreport\");
 
-       Assert.AreEqual(@"C:\testreport\", ((ConfigureBase)fileReader).GetParam(6).Value);
+            Assert.AreEqual(@"C:\testreport\", ((ConfigureBase)fileReader).GetParam(6).Value);
 
         }
-      
+
 
         [TestMethod]
         public void XmlReaderProvider()
@@ -61,10 +61,10 @@ namespace Homework.Test
 
             JsonWriter.ProcessData("<Employees><title ><ID>1</ID ><FirstName > David </FirstName > </title > <text></text ></Employees>");
 
-         Assert.IsTrue( File.Exists(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json")));
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json")));
         }
 
-        
+
         [TestMethod]
         public void JsonReaderTest()
         {
@@ -177,7 +177,7 @@ namespace Homework.Test
 
         }
 
-        public static void EmptyDirectory (string path)
+        public static void EmptyDirectory(string path)
         {
             System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo(path);
             foreach (System.IO.FileInfo file in directory.GetFiles()) file.Delete();

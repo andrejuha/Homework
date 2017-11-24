@@ -6,10 +6,10 @@ using System;
 
 namespace Homework
 {
-    public class CloudReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>,IReader
+    public class CloudReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>, IReader, ICloudReaderProvider
     {
         private DummyAuthetificationProxy daProxy= null;
-        public CloudReaderProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public CloudReaderProvider(IMediator<string, string> mediator) : base(mediator)
         {
         }
 

@@ -4,13 +4,13 @@ using System;
 
 namespace Homework
 {
-    public class ConcreteMediator<T, R> : MediatorBase<T, R>,IMediatorBase<T, R>
+    public class ConcreteMediator<T, R> :IMediator<T, R>
     {
         private IProviderBase<T, R> _readerProvider;
 
         private IProviderBase<T, R> _writerProvider;
 
-        public override IProviderBase<T, R> ReaderProvider
+        public  IProviderBase<T, R> ReaderProvider
         {
             set
             {
@@ -18,7 +18,7 @@ namespace Homework
             }
         }
 
-        public override IProviderBase<T, R> WriterProvider
+        public  IProviderBase<T, R> WriterProvider
         {
             set
             {
@@ -26,7 +26,7 @@ namespace Homework
             }
         }
 
-        public override R ForwardData(T data, IProviderBase<T, R> provider)
+        public  R ForwardData(T data, IProviderBase<T, R> provider)
         {
             bool flag = provider == (ProviderBase<T, R>)this._readerProvider;
             R result;

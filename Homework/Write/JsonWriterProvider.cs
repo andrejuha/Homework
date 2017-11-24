@@ -13,7 +13,7 @@ namespace Homework
 {
     public class JsonWriterProvider : ProviderBase<string, string>
     {
-        public JsonWriterProvider(IMediatorBase<string, string> mediator) : base(mediator)
+        public JsonWriterProvider(IMediator<string, string> mediator) : base(mediator)
         {
         }
 

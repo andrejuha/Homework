@@ -8,7 +8,7 @@ namespace Homework
 {
     public class ReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>
     {
-        public ReaderProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public ReaderProvider(IMediator<string, string> mediator) : base(mediator)
         {
         }
 

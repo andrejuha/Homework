@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICloudReaderProvider.cs" />
+    <Compile Include="IDoubleProvider.cs" />
     <Compile Include="IReader.cs" />
     <Compile Include="IConfigurable.cs" />
     <Compile Include="IConfigurationItem.cs" />

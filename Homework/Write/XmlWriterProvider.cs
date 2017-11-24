@@ -11,7 +11,7 @@ namespace Homework
 {
     public class XmlWriterProvider : ProviderBase<string, string>
     {
-        public XmlWriterProvider(IMediatorBase<string, string> mediator) : base(mediator)
+        public XmlWriterProvider(IMediator<string, string> mediator) : base(mediator)
         {
         }
 

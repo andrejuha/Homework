@@ -8,7 +8,7 @@ namespace Homework
 {
     public class CloudWriterProvider : ProviderBase<string, string>
     {
-        public CloudWriterProvider(IMediatorBase<string, string> mediator) : base(mediator)
+        public CloudWriterProvider(IMediator<string, string> mediator) : base(mediator)
         {
         }
 
