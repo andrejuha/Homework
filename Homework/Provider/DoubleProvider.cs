@@ -19,14 +19,17 @@ namespace Homework
             this.readerProvider = readerProvider;
             this.writerProvider = writerProvider;
             this.mediator = mediator;
+            this.mediator.ReaderProvider = readerProvider;
+            this.mediator.WriterProvider = writerProvider;
 
         }
 
        public void Process()
         {
-            R data = default(R);
-            W writeData= default(W);
-            writeData= this.readerProvider.ForwardData( data);
+            //R data = default(R);
+            //W writeData= default(W);
+            //writeData=
+                ((IReader) this.readerProvider).Read();
 
         }
     }

@@ -6,7 +6,8 @@ using System.IO;
 
 namespace Homework
 {
-    public class DiskReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>
+    public class DiskReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>, IReader
+
     {
         public DiskReaderProvider(IMediatorBase<string, string> mediator) : base(mediator)
         {
@@ -36,6 +37,12 @@ namespace Homework
             }
             return input;
            
+        }
+
+        public void Read()
+        {
+           string data= ProcessData( null);
+            ForwardData(data);
         }
     }
 }

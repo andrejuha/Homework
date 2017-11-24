@@ -56,7 +56,7 @@
     <Compile Include="Read\DiskReaderProvider.cs" />
     <Compile Include="Read\CloudReaderProvider.cs" />
     <Compile Include="Write\CloudWriterProvider.cs" />
-    <Compile Include="Write\DummyAuthetificationProxy.cs" />
+    <Compile Include="DummyAuthetificationProxy.cs" />
     <Compile Include="Write\XmlWriterProvider.cs" />
     <Compile Include="Write\JsonWriterProvider.cs" />
     <Compile Include="Write\DiskWriterProvider.cs" />

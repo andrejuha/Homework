@@ -10,7 +10,7 @@ namespace Homework
 
         private IProviderBase<T, R> _writerProvider;
 
-        public IProviderBase<T, R> ReaderProvider
+        public override IProviderBase<T, R> ReaderProvider
         {
             set
             {
@@ -18,7 +18,7 @@ namespace Homework
             }
         }
 
-        public IProviderBase<T, R> WriterProvider
+        public override IProviderBase<T, R> WriterProvider
         {
             set
             {

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IReader.cs" />
     <Compile Include="IConfigurable.cs" />
     <Compile Include="IConfigurationItem.cs" />
     <Compile Include="IMediatorBase.cs" />

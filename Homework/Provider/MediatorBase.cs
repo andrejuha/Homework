@@ -17,6 +17,17 @@ namespace Homework.Provider
 
     {
         public abstract R ForwardData(T data, IProviderBase<T, R> provider);
+
+        public abstract IProviderBase<T, R> ReaderProvider
+        {
+            set;
+           
+        }
+
+        public abstract IProviderBase<T, R> WriterProvider
+        {
+            set;
+        }
     }
     
 }
