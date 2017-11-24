@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity;
 
 namespace Homework.Factory
 {
     public class Registrator
     {
-        static void Register()
+        public static UnityContainer Register()
         {
-            container = new UnityContainer();
+            UnityContainer container = new UnityContainer();
 
             container.RegisterType<DiskReaderProvider>();
 
@@ -25,6 +26,8 @@ namespace Homework.Factory
 
 
             container.RegisterType<ConcreteMediator<string, string>>();
+
+            return container;
         }
     }
 }

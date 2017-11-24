@@ -6,6 +6,7 @@ using Unity;
 using Unity.RegistrationByConvention;
 using Homework;
 using Homework.Interfaces;
+using Homework.Factory;
 
 namespace Homework.Test
 {
@@ -17,21 +18,21 @@ namespace Homework.Test
     {
         public ResolveTest()
         {
-            container = new UnityContainer();
+            //Registrator new UnityContainer();
 
-            container.RegisterType<DiskReaderProvider>();
+            //container.RegisterType<DiskReaderProvider>();
 
-            container.RegisterType<JsonWriterProvider>();
+            //container.RegisterType<JsonWriterProvider>();
 
-            container.RegisterType< DoubleProvider<string, string>>();
-            //container.RegisterType<IProviderBase<string, string>, DoubleProvider<string, string>>();
+            //container.RegisterType< DoubleProvider<string, string>>();
+            ////container.RegisterType<IProviderBase<string, string>, DoubleProvider<string, string>>();
 
-            container.RegisterType<IMediatorBase<string, string>, ConcreteMediator<string, string>>();
+            //container.RegisterType<IMediatorBase<string, string>, ConcreteMediator<string, string>>();
 
 
-            container.RegisterType< ConcreteMediator<string, string>>();
-            
+            //container.RegisterType< ConcreteMediator<string, string>>();
 
+            container= Registrator.Register();
 
 
 
