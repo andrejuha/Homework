@@ -6,9 +6,9 @@ using System.IO;
 
 namespace Homework
 {
-    public class ReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>
+    public class JsonReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>
     {
-        public ReaderProvider(MediatorBase<string, string> mediator) : base(mediator)
+        public JsonReaderProvider(MediatorBase<string, string> mediator) : base(mediator)
         {
         }
 
