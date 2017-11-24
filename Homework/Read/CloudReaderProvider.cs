@@ -6,7 +6,7 @@ using System;
 
 namespace Homework
 {
-    public class CloudReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>
+    public class CloudReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>,IReader
     {
         private DummyAuthetificationProxy daProxy= null;
         public CloudReaderProvider(MediatorBase<string, string> mediator) : base(mediator)
@@ -20,7 +20,7 @@ namespace Homework
 
         public override string ProcessData(string data)
         {
-            string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+            string sourceFileName = base.GetParam((int)ConfigurationEnum.SourcePath).Value;
             string userName = base.GetParam((int)ConfigurationEnum.UserName).Value;
             string password = base.GetParam((int)ConfigurationEnum.Password).Value;
             string url = base.GetParam((int)ConfigurationEnum.Url).Value;
@@ -35,10 +35,16 @@ namespace Homework
                     throw new AuthentificateExceptinCW(new Exception("Dummy Cloud proxy not authetificated."));
             }
 
-          string outpuData=  daProxy.GetStringFile(targetFileName);
+          string outpuData=  daProxy.GetStringFile(sourceFileName);
 
 
           return outpuData;
+        }
+
+        public void Read()
+        {
+            string data = ProcessData(null);
+            ForwardData(data);
         }
     }
 }

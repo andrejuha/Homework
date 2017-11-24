@@ -24,7 +24,8 @@ namespace Homework.Test
 
 
             configurator.ConfigureSourcePath(fileReader,@"C:\testreport\");
-          
+
+       Assert.AreEqual(@"C:\testreport\", ((ConfigureBase)fileReader).GetParam(6).Value);
 
         }
       
@@ -63,6 +64,18 @@ namespace Homework.Test
          Assert.IsTrue( File.Exists(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json")));
         }
 
+        
+        [TestMethod]
+        public void JsonReaderTest()
+        {
+            Configurator configurator = new Configurator();
+
+            ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
+            JsonReaderProvider diskReaderProvider = new JsonReaderProvider(m);
+            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document2.json"));
+            diskReaderProvider.ProcessData(null);
+        }
+
         [TestMethod]
         public void DoubleProviderTestXmlToJson()
         {
@@ -87,8 +100,9 @@ namespace Homework.Test
 
 
         }
+
         [TestMethod]
-        public void DoubleProviderTestXmlToXml()
+        public void DoubleProviderTestJsonToXml()
         {
             EmptyDirectory(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files"));
 
@@ -96,8 +110,8 @@ namespace Homework.Test
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
 
-            DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
-            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
+            JsonReaderProvider diskReaderProvider = new JsonReaderProvider(m);
+            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document2.json"));
 
             XmlWriterProvider xmlWriter = new XmlWriterProvider(m);
             configurator.ConfigureDestinationPath(xmlWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.xml"));
@@ -147,6 +161,8 @@ namespace Homework.Test
             configurator.ConfigureSourcePath(ReaderProvider, Path.Combine("cloudPath", "\\cloudDirectory"));
             configurator.ConfigureUserName(ReaderProvider, "testUser");
             configurator.ConfigurePassword(ReaderProvider, "testPassword");
+            configurator.ConfigureUrl(ReaderProvider, "cloudUrl");
+
             XmlWriterProvider xmlWriter = new XmlWriterProvider(m);
             configurator.ConfigureDestinationPath(xmlWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.xml"));
 

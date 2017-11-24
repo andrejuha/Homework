@@ -5,6 +5,7 @@ using Homework.Interfaces;
 using Homework.Provider;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 
@@ -23,40 +24,50 @@ namespace Homework
 
         public override string ProcessData(string data)
         {
-            string targetFileName = base.GetParam((int)ConfigurationEnum.DestinationPath).Value;
+            string targetFileName = base.GetParam((int)ConfigurationEnum.SourcePath).Value;
             SimpleDocument json = null;
             try
             {
-                 json = JsonConvert.DeserializeObject<SimpleDocument>(data);
+                using (StreamReader r = new StreamReader(targetFileName))
+                {
+                    string jsonfile = r.ReadToEnd();
+                    json = JsonConvert.DeserializeObject<SimpleDocument>(jsonfile);
+                }
+
             }
             catch (Exception ex)
             {
-                throw new StreamExceptionJW(ex);
+                throw new JsonDeserializeJR(ex);
             }
 
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.NewLineOnAttributes = true;
-
+            //string oututdata=string.Empty;
+            XmlDocument doc = new XmlDocument();
             try
             {
-                using (XmlWriter writer = XmlWriter.Create(targetFileName, settings))
+                XmlNode docNode = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                doc.AppendChild(docNode);
 
-                {
-                    writer.WriteStartElement("Employee");
+                XmlNode simpleDocument = doc.CreateElement("SimpleDocument");
+                doc.AppendChild(simpleDocument);
 
-                    writer.WriteElementString("title", json.Title);
+                XmlNode productNode = doc.CreateElement("title");
+                productNode.AppendChild(doc.CreateTextNode("Java"));
+                simpleDocument.AppendChild(productNode);
 
-                    writer.WriteElementString("text", json.Text);
 
-                    writer.WriteEndElement();
-                }
+                XmlNode productNode1 = doc.CreateElement("text");
+                productNode1.AppendChild(doc.CreateTextNode(json.Title));
+                simpleDocument.AppendChild(productNode1);
+    
             }
             catch (Exception ex)
             {
-                throw new StreamExceptionJW(ex);
+                throw new StreamExceptionJR(ex);
             }
-            return string.Empty;
+            return doc.OuterXml; 
         }
 
         public void Read()

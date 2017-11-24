@@ -11,7 +11,7 @@ namespace Homework
 
         internal string GetStringFile(string path)
         {
-            return "dummy text from  DummyAuthetificationProxy.GetStringFile";
+            return "<Employees><title><ID> 1 </ID><FirstName>David</FirstName></title><text></text></Employees>";
         }
 
         internal void WriteStringFile(string path, string StringFile)

@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Document\SimpleDocument.cs" />
+    <Compile Include="Exceptions\StreamExceptionJR.cs" />
+    <Compile Include="Exceptions\JsonDeserializeJR.cs" />
     <Compile Include="Exceptions\AuthentificateExceptinCW.cs" />
     <Compile Include="Exceptions\ParseExceptionJW.cs" />
     <Compile Include="Exceptions\ParseExceptionXW.cs" />
