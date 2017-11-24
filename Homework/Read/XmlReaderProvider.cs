@@ -6,10 +6,10 @@ using System.IO;
 
 namespace Homework
 {
-    public class DiskReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>, IReader
+    public class XmlReaderProvider : ProviderBase<string, string>, IProviderBase<string, string>, IReader
 
     {
-        public DiskReaderProvider(IMediatorBase<string, string> mediator) : base(mediator)
+        public XmlReaderProvider(IMediatorBase<string, string> mediator) : base(mediator)
         {
         }
 

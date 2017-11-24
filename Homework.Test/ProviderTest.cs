@@ -20,7 +20,7 @@ namespace Homework.Test
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
 
-            IConfigurable fileReader = new DiskReaderProvider(m);
+            IConfigurable fileReader = new XmlReaderProvider(m);
 
 
             configurator.ConfigureSourcePath(fileReader,@"C:\testreport\");
@@ -31,14 +31,14 @@ namespace Homework.Test
       
 
         [TestMethod]
-        public void DiskReaderTest()
+        public void XmlReaderProvider()
         {
 
             Configurator configurator = new Configurator();
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
 
-            DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
+            XmlReaderProvider diskReaderProvider = new XmlReaderProvider(m);
 
             configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
 
@@ -85,7 +85,7 @@ namespace Homework.Test
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
 
-            DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
+            XmlReaderProvider diskReaderProvider = new XmlReaderProvider(m);
             configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
 
             JsonWriterProvider jsonWriter = new JsonWriterProvider(m);
@@ -132,7 +132,7 @@ namespace Homework.Test
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
 
-            DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
+            XmlReaderProvider diskReaderProvider = new XmlReaderProvider(m);
             configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
 
             CloudWriterProvider writerProvider = new CloudWriterProvider(m);

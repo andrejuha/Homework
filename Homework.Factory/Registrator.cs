@@ -15,7 +15,7 @@ namespace Homework.Factory
         {
             UnityContainer container = new UnityContainer();
 
-            container.RegisterType<DiskReaderProvider>();
+            container.RegisterType<XmlReaderProvider>();
 
             container.RegisterType<JsonWriterProvider>();
 

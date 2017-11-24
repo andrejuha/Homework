@@ -81,7 +81,7 @@ namespace Homework.Test
         [TestMethod]
         public void ResolveDiskReaderProvider()
         {
-              var diskReaderProvider = container.Resolve<DiskReaderProvider>();
+              var diskReaderProvider = container.Resolve<XmlReaderProvider>();
             Assert.IsNotNull(diskReaderProvider); // pass
         }
 

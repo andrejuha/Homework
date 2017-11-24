@@ -55,7 +55,7 @@
     <Compile Include="Exceptions\SerializeExceptionJW.cs" />
     <Compile Include="Exceptions\ParseDataExceptionJW.cs" />
     <Compile Include="Provider\DoubleProvider.cs" />
-    <Compile Include="Read\DiskReaderProvider.cs" />
+    <Compile Include="Read\XmlReaderProvider.cs" />
     <Compile Include="Read\CloudReaderProvider.cs" />
     <Compile Include="Read\JsonReaderProvider.cs" />
     <Compile Include="Write\CloudWriterProvider.cs" />
