@@ -35,7 +35,7 @@
 //            {
 //                throw new Exception(ex.Message);
 //ak vytvorite jednu jedinu custom exception budete presne vediet kde v kode nastala.
-// custom excetions umoznuju napriklad aj automaticke logovanie, zobrazovanie vnutorneho stavu programu kedy exception nastala , posielanie cez service a podobne...
+// custom excetions umoznuju napriklad aj automaticke logovanie, zobrazovanie vnutorneho stavu programu v case kedy nastalla exception  , posielanie serializovatelnej exeption cez webservice a podobne...
 //            }
 
 //            var xdoc = XDocument.Parse(input);
