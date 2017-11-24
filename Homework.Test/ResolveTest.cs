@@ -13,9 +13,9 @@ namespace Homework.Test
     /// Summary description for UnitTest2
     /// </summary>
     [TestClass]
-    public class UnitTest2
+    public class ResolveTest
     {
-        public UnitTest2()
+        public ResolveTest()
         {
             container = new UnityContainer();
 

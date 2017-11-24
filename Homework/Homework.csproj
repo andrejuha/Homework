@@ -60,8 +60,7 @@
     <Compile Include="DummyAuthetificationProxy.cs" />
     <Compile Include="Write\XmlWriterProvider.cs" />
     <Compile Include="Write\JsonWriterProvider.cs" />
-    <Compile Include="Write\DiskWriterProvider.cs" />
-    <Compile Include="Read\ReaderProvider.cs" />
+    <Compile Include="Read\DummyReaderProvider.cs" />
     <Compile Include="Provider\ConcreteMediator.cs" />
     <Compile Include="Provider\MediatorBase.cs" />
     <Compile Include="Provider\ProviderBase.cs" />

@@ -8,7 +8,7 @@ using Homework;
 namespace Homework.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class ProviderTest
     {
         [TestMethod]
         public void  ConfigurationTest()
@@ -27,37 +27,12 @@ namespace Homework.Test
           
 
         }
-        [TestMethod]
-        public void DummyProviderTest()
-
-        {
-
-            ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
-
-
-
-            ReaderProvider c1 = new ReaderProvider(m);
-
-            WriterProvider c2 = new WriterProvider(m);
-
-
-
-            m.ReaderProvider = c1;
-
-            m.WriterProvider = c2;
-
-
-
-            c1.ForwardData("How are you?");
-
-            c2.ForwardData("Fine, thanks");
-
-
-        }
+      
 
         [TestMethod]
         public void DiskReaderTest()
         {
+
             Configurator configurator = new Configurator();
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
@@ -72,6 +47,8 @@ namespace Homework.Test
         [TestMethod]
         public void JsonWriterTest()
         {
+            EmptyDirectory(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files"));
+
             Configurator configurator = new Configurator();
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
@@ -83,11 +60,14 @@ namespace Homework.Test
 
             JsonWriter.ProcessData("<Employees><title ><ID>1</ID ><FirstName > David </FirstName > </title > <text></text ></Employees>");
 
+         Assert.IsTrue( File.Exists(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json")));
         }
 
         [TestMethod]
         public void DoubleProviderTestXmlToJson()
         {
+            EmptyDirectory(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files"));
+
             Configurator configurator = new Configurator();
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
@@ -103,11 +83,15 @@ namespace Homework.Test
 
             doubleProvider.Process();
 
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json")));
+
 
         }
         [TestMethod]
         public void DoubleProviderTestXmlToXml()
         {
+            EmptyDirectory(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files"));
+
             Configurator configurator = new Configurator();
 
             ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
@@ -123,10 +107,65 @@ namespace Homework.Test
 
             doubleProvider.Process();
 
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.xml")));
+
+        }
+        [TestMethod]
+        public void DoubleProviderTestXmlToCloud()
+        {
+
+            Configurator configurator = new Configurator();
+
+            ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
+
+            DiskReaderProvider diskReaderProvider = new DiskReaderProvider(m);
+            configurator.ConfigureSourcePath(diskReaderProvider, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml"));
+
+            CloudWriterProvider writerProvider = new CloudWriterProvider(m);
+            configurator.ConfigureDestinationPath(writerProvider, Path.Combine("cloudPath", "\\cloudDirectory"));
+            configurator.ConfigureUserName(writerProvider, "testUser");
+            configurator.ConfigurePassword(writerProvider, "testPassword");
+            configurator.ConfigureUrl(writerProvider, "cloudUrl");
+
+            DoubleProvider<string, string> doubleProvider = new DoubleProvider<string, string>(diskReaderProvider, writerProvider, m);
+
+            doubleProvider.Process();
+
+
+        }
+        [TestMethod]
+        public void DoubleProviderTestCloudToXml()
+        {
+
+            EmptyDirectory(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files"));
+
+            Configurator configurator = new Configurator();
+
+            ConcreteMediator<string, string> m = new ConcreteMediator<string, string>();
+
+            CloudReaderProvider ReaderProvider = new CloudReaderProvider(m);
+            configurator.ConfigureSourcePath(ReaderProvider, Path.Combine("cloudPath", "\\cloudDirectory"));
+            configurator.ConfigureUserName(ReaderProvider, "testUser");
+            configurator.ConfigurePassword(ReaderProvider, "testPassword");
+            XmlWriterProvider xmlWriter = new XmlWriterProvider(m);
+            configurator.ConfigureDestinationPath(xmlWriter, Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.xml"));
+
+
+            DoubleProvider<string, string> doubleProvider = new DoubleProvider<string, string>(ReaderProvider, xmlWriter, m);
+
+            doubleProvider.Process();
+
+            Assert.IsTrue(File.Exists(Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.xml")));
+
+
 
         }
 
-   
-
+        public static void EmptyDirectory (string path)
+        {
+            System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo(path);
+            foreach (System.IO.FileInfo file in directory.GetFiles()) file.Delete();
+            foreach (System.IO.DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
+        }
     }
 }
