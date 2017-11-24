@@ -30,8 +30,6 @@ namespace Homework
             string serializedDoc = null;
             SimpleDocument doc = null;
 
-            //IEnumerable<XNode> nodes = xdoc.Root.Nodes().to;
-
             try
             {
                  xdoc = XDocument.Parse(data);
