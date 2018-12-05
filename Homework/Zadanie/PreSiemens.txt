@@ -1,0 +1,30 @@
+﻿Zadanie bolo take ze urobit nieco co bude mat nezavisle vstupy a vystupy. 
+A ja som si spomenul na klasicky provider patern:
+
+public interface IProvider
+{
+void ConfigureProvider (ConfigureData configureData);///moze sa nastavit vystup a vstup,pathy, pripadne aky modul sa nahraje bude executnuty z xml config fileu...
+outputData Execute(InputData inputData);//executne vnutorny modul .
+
+}
+
+Teoria co to je Provider patern:
+
+Provider patern je sucastou tvojvrstvovej architektury pre enginy:
+Engine(Technologicky zavisla vrstva) obsahuje:
+Provider(Standardne configuruje modul) obsahuje:
+Modul(Tu je implementovany algoritmus.)
+
+
+Provider patern sluzi na to aby nebol modul rovno v engine. 
+Pretoze engine  je zvisly na technologii(webservice,webApi).
+Hlavna vyhoda provideru je ho zoberiete a mozete ho dat do test projectu, winformu,mvc a podobne..
+Napriklad v gradiente sice mali provider ale nemali v nom moduly(GbatchManager). To znamena ze funkcionalita bola  natvrdo naprogramovana v providery.
+
+Double Provider:
+
+Najdolezitejsi produkt celej veci v solution je DoubleProvider(Je to take pisane pseudo uml):
+
+DoubleProvider<vstupnyInternyTyp,vystupnyInternyTyp >(TypvstupnehoProvideru<vstupTyp,vystupTyp>,  typVystupnehoProvideru<vstupTyp,vystupTyp>,TypMediatoru<vstupTyp,vystupTyp>)
+
+
